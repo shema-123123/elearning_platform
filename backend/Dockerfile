@@ -12,7 +12,7 @@ RUN npm install --production
 COPY . .
 
 # Add this line (most apps use 8080 or 3000)
-EXPOSE 8080
+EXPOSE 5000
 
 # 5. Start the application
 CMD ["node", "server.js"] 
