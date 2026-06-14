@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet, Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../Contexts/AuthContext'
 import {
   HomeIcon,
   PackageIcon,
