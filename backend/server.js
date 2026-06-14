@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 // Middleware
 app.use(cors({
-  origin:'*'
+  origin:'https://elearning-platform-5s9b.vercel.app/'
 }));
 app.use(express.json());
 
