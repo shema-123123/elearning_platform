@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../Contexts/AuthContext'
 import toast from 'react-hot-toast'
 import { Trash2Icon } from 'lucide-react'
 

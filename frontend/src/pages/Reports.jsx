@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../Contexts/AuthContext'
 import { FileTextIcon, DownloadIcon } from 'lucide-react'
 
 const Reports = () => {

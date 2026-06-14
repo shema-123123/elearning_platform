@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../Contexts/AuthContext'
 import { PackageIcon, Eye, EyeOff } from 'lucide-react'
 
 const Login = () => {
