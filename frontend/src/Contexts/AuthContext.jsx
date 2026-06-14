@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import api from '../../api/api'
+import api from '../api/axios'
 const AuthContext = createContext()
 export const useAuth = () => useContext(AuthContext)
 export const AuthProvider = ({ children }) => {  

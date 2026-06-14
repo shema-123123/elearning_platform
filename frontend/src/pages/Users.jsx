@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useAuth } from '../Contexts/AuthContext'
 import toast from 'react-hot-toast'
 import { Trash2Icon, UserPlusIcon } from 'lucide-react'
-import api from '../../api/api'
+import api from "../api/axios"
 
 const Users = () => {
   const { isAdmin, user: currentUser } = useAuth()

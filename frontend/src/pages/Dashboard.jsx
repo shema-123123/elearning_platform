@@ -6,7 +6,7 @@ import {
   TrendingDownIcon,
   AlertCircleIcon
 } from 'lucide-react'
-import api from '../../api/api'
+import api from "../api/axios"
 
 const Dashboard = () => {
   const { user } = useAuth()
