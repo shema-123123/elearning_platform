@@ -27,8 +27,8 @@ const Dashboard = () => {
     try {
       setLoading(true)
       const [stockStatusRes, lowStockRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/reports/daily-stock-status'),
-        axios.get('http://localhost:5000/api/reports/low-stock-alert')
+        axios.get('https://stock-kyq88mg4.b4a.run/api/reports/daily-stock-status'),
+        axios.get('https://stock-kyq88mg4.b4a.run/api/reports/low-stock-alert')
       ])
 
       setStats({

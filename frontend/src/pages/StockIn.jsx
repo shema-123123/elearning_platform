@@ -19,7 +19,7 @@ const StockIn = () => {
 
   const fetchSpareParts = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/spare-parts')
+      const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/spare-parts')
       setSpareParts(response.data)
     } catch (error) {
       toast.error('Failed to fetch spare parts')
@@ -28,7 +28,7 @@ const StockIn = () => {
 
   const fetchHistory = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/stock-in')
+      const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/stock-in')
       setHistory(response.data)
     } catch (error) {
       console.error('Failed to fetch history')
@@ -44,7 +44,7 @@ const StockIn = () => {
     setLoading(true)
 
     try {
-      await axios.post('http://localhost:5000/api/stock-in', {
+      await axios.post('https://stock-kyq88mg4.b4a.run/api/stock-in', {
         sparePartId: selectedPart,
         quantity: parseInt(quantity)
       })

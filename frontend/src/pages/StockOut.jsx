@@ -20,7 +20,7 @@ const StockOut = () => {
 
   const fetchSpareParts = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/spare-parts')
+      const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/spare-parts')
       setSpareParts(response.data)
     } catch (error) {
       toast.error('Failed to fetch spare parts')
@@ -29,7 +29,7 @@ const StockOut = () => {
 
   const fetchHistory = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/stock-out')
+      const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/stock-out')
       setHistory(response.data)
     } catch (error) {
       console.error('Failed to fetch history')
@@ -45,7 +45,7 @@ const StockOut = () => {
     setLoading(true)
 
     try {
-      await axios.post('http://localhost:5000/api/stock-out', {
+      await axios.post('https://stock-kyq88mg4.b4a.run/api/stock-out', {
         sparePartId: selectedPart,
         quantity: parseInt(quantity)
       })
@@ -67,7 +67,7 @@ const StockOut = () => {
 
     if (window.confirm('Are you sure? This will restore inventory.')) {
       try {
-        await axios.delete(`http://localhost:5000/api/stock-out/${id}`)
+        await axios.delete(`https://stock-kyq88mg4.b4a.run/api/stock-out/${id}`)
         toast.success('Deleted successfully')
         fetchSpareParts()
         fetchHistory()

@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
                 setLoading(false)    }  }, [token])  
 const fetchUser = async () => {    
                     try {      
-                        const response = await axios.get('http://localhost:5000/api/auth/me')      
+                        const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/auth/me')      
                         setUser(response.data)    } 
                         catch (error) {      
                             console.error('Failed to fetch user:', error)      
@@ -27,7 +27,7 @@ const fetchUser = async () => {
                             setLoading(false)    }  }  
     const login = async (email, password) => {    
         try {      
-                                    const response = await axios.post('http://localhost:5000/api/auth/login', { email, password })      
+                                    const response = await axios.post('https://stock-kyq88mg4.b4a.run/api/auth/login', { email, password })      
                                     const { token, user } = response.data      
                                     localStorage.setItem('token', token)      
                                     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`      

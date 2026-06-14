@@ -24,7 +24,7 @@ const SpareParts = () => {
 
   const fetchSpareParts = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/spare-parts')
+      const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/spare-parts')
       setSpareParts(response.data)
     } catch (error) {
       toast.error('Failed to fetch spare parts')
@@ -37,12 +37,12 @@ const SpareParts = () => {
     try {
       if (editingPart) {
         await axios.put(
-          `http://localhost:5000/api/spare-parts/${editingPart._id}`,
+          `https://stock-kyq88mg4.b4a.run/api/spare-parts/${editingPart._id}`,
           formData
         )
         toast.success('Updated successfully')
       } else {
-        await axios.post('http://localhost:5000/api/spare-parts', formData)
+        await axios.post('https://stock-kyq88mg4.b4a.run/api/spare-parts', formData)
         toast.success('Created successfully')
       }
 
@@ -57,7 +57,7 @@ const SpareParts = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Delete this spare part?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/spare-parts/${id}`)
+        await axios.delete(`https://stock-kyq88mg4.b4a.run/api/spare-parts/${id}`)
         toast.success('Deleted successfully')
         fetchSpareParts()
       } catch (error) {

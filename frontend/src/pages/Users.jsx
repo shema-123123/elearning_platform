@@ -22,7 +22,7 @@ const Users = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users')
+      const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/users')
       setUsers(response.data)
     } catch (error) {
       toast.error('Failed to fetch users')
@@ -32,7 +32,7 @@ const Users = () => {
   const handleCreateUser = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:5000/api/auth/register', formData)
+      await axios.post('https://stock-kyq88mg4.b4a.run/api/auth/register', formData)
       toast.success('User created successfully')
       fetchUsers()
       setShowModal(false)
@@ -44,7 +44,7 @@ const Users = () => {
 
   const handleUpdateRole = async (userId, newRole) => {
     try {
-      await axios.put(`http://localhost:5000/api/users/${userId}/role`, { role: newRole })
+      await axios.put(`https://stock-kyq88mg4.b4a.run/api/users/${userId}/role`, { role: newRole })
       toast.success('User role updated')
       fetchUsers()
     } catch (error) {
@@ -60,7 +60,7 @@ const Users = () => {
 
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/users/${userId}`)
+        await axios.delete(`https://stock-kyq88mg4.b4a.run/api/users/${userId}`)
         toast.success('User deleted successfully')
         fetchUsers()
       } catch (error) {

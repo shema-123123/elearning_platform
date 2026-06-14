@@ -20,7 +20,7 @@ const Reports = () => {
   const fetchStockStatus = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:5000/api/reports/daily-stock-status'
+        'https://stock-kyq88mg4.b4a.run/api/reports/daily-stock-status'
       )
       setStockStatus(response.data)
     } catch (error) {
@@ -31,7 +31,7 @@ const Reports = () => {
   const fetchDailyStockOut = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/reports/daily-stock-out?date=${selectedDate}`
+        `https://stock-kyq88mg4.b4a.run/api/reports/daily-stock-out?date=${selectedDate}`
       )
       setDailyStockOut(response.data)
     } catch (error) {
