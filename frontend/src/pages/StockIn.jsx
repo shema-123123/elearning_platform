@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useAuth } from '../Contexts/AuthContext'
 import toast from 'react-hot-toast'
+import api from '../../api/api'
 
 const StockIn = () => {
   const { isManager } = useAuth()
@@ -19,7 +20,7 @@ const StockIn = () => {
 
   const fetchSpareParts = async () => {
     try {
-      const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/spare-parts')
+      const response = await api.get('api/spare-parts')
       setSpareParts(response.data)
     } catch (error) {
       toast.error('Failed to fetch spare parts')
@@ -28,7 +29,7 @@ const StockIn = () => {
 
   const fetchHistory = async () => {
     try {
-      const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/stock-in')
+      const response = await api.get('api/stock-in')
       setHistory(response.data)
     } catch (error) {
       console.error('Failed to fetch history')
@@ -44,7 +45,7 @@ const StockIn = () => {
     setLoading(true)
 
     try {
-      await axios.post('https://stock-kyq88mg4.b4a.run/api/stock-in', {
+      await api.post('api/stock-in', {
         sparePartId: selectedPart,
         quantity: parseInt(quantity)
       })

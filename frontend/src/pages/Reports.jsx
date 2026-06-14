@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import api from '../../api/api'
 import { useAuth } from '../Contexts/AuthContext'
 import { FileTextIcon, DownloadIcon } from 'lucide-react'
 
@@ -19,8 +20,8 @@ const Reports = () => {
 
   const fetchStockStatus = async () => {
     try {
-      const response = await axios.get(
-        'https://stock-kyq88mg4.b4a.run/api/reports/daily-stock-status'
+      const response = await api.get(
+        'api/reports/daily-stock-status'
       )
       setStockStatus(response.data)
     } catch (error) {
@@ -30,8 +31,8 @@ const Reports = () => {
 
   const fetchDailyStockOut = async () => {
     try {
-      const response = await axios.get(
-        `https://stock-kyq88mg4.b4a.run/api/reports/daily-stock-out?date=${selectedDate}`
+      const response = await api.get(
+        `api/reports/daily-stock-out?date=${selectedDate}`
       )
       setDailyStockOut(response.data)
     } catch (error) {

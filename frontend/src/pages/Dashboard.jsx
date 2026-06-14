@@ -6,7 +6,7 @@ import {
   TrendingDownIcon,
   AlertCircleIcon
 } from 'lucide-react'
-import axios from 'axios'
+import api from '../../api/api'
 
 const Dashboard = () => {
   const { user } = useAuth()
@@ -27,8 +27,8 @@ const Dashboard = () => {
     try {
       setLoading(true)
       const [stockStatusRes, lowStockRes] = await Promise.all([
-        axios.get('https://stock-kyq88mg4.b4a.run/api/reports/daily-stock-status'),
-        axios.get('https://stock-kyq88mg4.b4a.run/api/reports/low-stock-alert')
+        api.get('api/reports/daily-stock-status'),
+        api.get('api/reports/low-stock-alert')
       ])
 
       setStats({

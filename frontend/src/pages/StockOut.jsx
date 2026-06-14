@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useAuth } from '../Contexts/AuthContext'
 import toast from 'react-hot-toast'
 import { Trash2Icon } from 'lucide-react'
+import api from '../../api/api'
 
 const StockOut = () => {
   const { isAdmin, isManager } = useAuth()
@@ -20,7 +21,7 @@ const StockOut = () => {
 
   const fetchSpareParts = async () => {
     try {
-      const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/spare-parts')
+      const response = await api.get('api/spare-parts')
       setSpareParts(response.data)
     } catch (error) {
       toast.error('Failed to fetch spare parts')
@@ -29,7 +30,7 @@ const StockOut = () => {
 
   const fetchHistory = async () => {
     try {
-      const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/stock-out')
+      const response = await api.get('api/stock-out')
       setHistory(response.data)
     } catch (error) {
       console.error('Failed to fetch history')
@@ -45,7 +46,7 @@ const StockOut = () => {
     setLoading(true)
 
     try {
-      await axios.post('https://stock-kyq88mg4.b4a.run/api/stock-out', {
+      await api.post('api/stock-out', {
         sparePartId: selectedPart,
         quantity: parseInt(quantity)
       })
@@ -67,7 +68,7 @@ const StockOut = () => {
 
     if (window.confirm('Are you sure? This will restore inventory.')) {
       try {
-        await axios.delete(`https://stock-kyq88mg4.b4a.run/api/stock-out/${id}`)
+        await api.delete(`api/stock-out/${id}`)
         toast.success('Deleted successfully')
         fetchSpareParts()
         fetchHistory()

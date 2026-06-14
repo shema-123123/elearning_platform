@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import api from '../../api/api'
 import { useAuth } from '../Contexts/AuthContext'
 import toast from 'react-hot-toast'
 import { Edit2Icon, Trash2Icon, PlusIcon } from 'lucide-react'
@@ -24,7 +25,7 @@ const SpareParts = () => {
 
   const fetchSpareParts = async () => {
     try {
-      const response = await axios.get('https://stock-kyq88mg4.b4a.run/api/spare-parts')
+      const response = await api.get('api/spare-parts')
       setSpareParts(response.data)
     } catch (error) {
       toast.error('Failed to fetch spare parts')
@@ -36,13 +37,13 @@ const SpareParts = () => {
 
     try {
       if (editingPart) {
-        await axios.put(
-          `https://stock-kyq88mg4.b4a.run/api/spare-parts/${editingPart._id}`,
+        await api.put(
+          `api/spare-parts/${editingPart._id}`,
           formData
         )
         toast.success('Updated successfully')
       } else {
-        await axios.post('https://stock-kyq88mg4.b4a.run/api/spare-parts', formData)
+        await api.post('api/spare-parts', formData)
         toast.success('Created successfully')
       }
 
@@ -57,7 +58,7 @@ const SpareParts = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Delete this spare part?')) {
       try {
-        await axios.delete(`https://stock-kyq88mg4.b4a.run/api/spare-parts/${id}`)
+        await api.delete(`api/spare-parts/${id}`)
         toast.success('Deleted successfully')
         fetchSpareParts()
       } catch (error) {
